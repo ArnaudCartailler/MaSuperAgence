@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Property;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,6 +16,9 @@ class PropertyController extends AbstractController
      */
     public function index():Response
     {
+
+        $repository = $this->getDoctrine()->getRepository(Property::class);
+        dump($repository);
         return $this->render('property/index.html.twig', [
             'current_menu' => 'properties'
         ]);
